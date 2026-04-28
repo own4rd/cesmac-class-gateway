@@ -1,0 +1,54 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8180/realms/cesmac}
+  cloud:
+    gateway:
+      routes:
+        - id: students-api
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/students/**
+          filters:
+            - StripPrefix=2
+        - id: courses-api
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/courses/**
+          filters:
+            - StripPrefix=2
+        - id: teachers-api
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/teachers/**
+          filters:
+            - StripPrefix=2
+        - id: classes-api
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/classes/**
+          filters:
+            - StripPrefix=2
+        - id: grades-api
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/grades/**
+          filters:
+            - StripPrefix=2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO

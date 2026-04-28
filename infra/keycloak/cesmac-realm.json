@@ -1,0 +1,38 @@
+{
+  "id": "cesmac",
+  "realm": "cesmac",
+  "enabled": true,
+  "sslRequired": "none",
+  "accessTokenLifespan": 300,
+  "clients": [
+    {
+      "clientId": "cesmac-api",
+      "name": "CESMAC APIs + Gateway",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "cesmac-secret",
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": true,
+      "publicClient": false,
+      "protocol": "openid-connect",
+      "fullScopeAllowed": true
+    }
+  ],
+  "users": [
+    {
+      "username": "aluno",
+      "enabled": true,
+      "email": "aluno@cesmac.edu",
+      "firstName": "Aluno",
+      "lastName": "Demo",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "aluno123",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}

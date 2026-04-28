@@ -1,0 +1,10 @@
+target/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+*.log
+scripts/logs/
+scripts/.pids
